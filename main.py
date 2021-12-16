@@ -10,6 +10,9 @@ def fix_names(contacts):
     """
     for person in contacts:
         # Для ФИО
+        length = len(person)
+        if length > 7:
+            del person[7:]
         person[0] = re.sub(r'([А-Я]\w+)\s([А-Я]\w+)\s([А-Я][а-я]+)', r'\1,\2,\3', person[0])
         # Для Ф,ИО и ФИ
         person[0] = re.sub(r'([А-Я]\w+)\s([А-Я]\w+)', r'\1,\2', person[0])
